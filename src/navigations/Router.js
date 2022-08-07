@@ -5,8 +5,9 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 
-import HomeScreen from '../screens/Home/HomeScreen';
 import HomeTabNavigator from './HomeTabNavigator';
+import HomeScreen from '../screens/Home/HomeScreen';
+import MovieListScreen from '../screens/MovieList/MovieListScreen';
 
 const Stack = createStackNavigator();
 
@@ -22,7 +23,15 @@ const Router = () => {
             options={{
                 headerShown: false,
             }}
-            />
+        />
+
+        <Stack.Screen
+            name={'MovieListScreen'}
+            component={MovieListScreen}
+            options={{
+                headerShown: false,
+            }}
+        />
 
       </Stack.Navigator>
     </NavigationContainer>
