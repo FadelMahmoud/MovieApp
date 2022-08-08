@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         marginHorizontal: 3,
     },
     moviePoster: {
-        backgroundColor: '353#ff3655',
+        backgroundColor: '#ff3655',
         height: '100%',
         width : '100%',
         resizeMode: 'stretch',
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         color: '#f48a0b',
-    }
+    },
 });
 
 export default styles;

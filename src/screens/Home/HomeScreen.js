@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable prettier/prettier */
-import {View, Text, Image, TextInput, Pressable, TouchableOpacity, FlatList, Modal} from 'react-native';
+import {View, Text, Image, TextInput, Pressable, TouchableOpacity, FlatList, Modal, Alert} from 'react-native';
 import React, {useState} from 'react';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
@@ -22,7 +22,9 @@ const findSearchResultsAndNavigate = (text, navigation) => {
     // console.log('searchResults[0]' + searchResults[0].title);
     // if (searchResults.length > 1) {console.log('searchResults[1]' + searchResults[1].title);}
 
-    navigation.navigate('MovieListScreen' , { message: 'Movie / Actor' , searchResults: searchResults } );
+    if (searchResults.length > 0)
+        {navigation.navigate('MovieListScreen' , { message: text , searchResults: searchResults } );}
+    else {Alert.alert('No Results', 'Try another search');}
 };
 
 const filterByGenreAndNavigate = (item, navigation) => {
@@ -32,8 +34,10 @@ const filterByGenreAndNavigate = (item, navigation) => {
 
     // // console.log('searchResults' + searchResults.length);
     // // console.log('searchResults[0]' + searchResults[0]);
+    if (searchResults.length > 0)
+        {navigation.navigate('MovieListScreen' , { message: item + ' Genre' , searchResults: searchResults } );}
+    else {Alert.alert('No Results', 'Try another search');}
 
-    navigation.navigate('MovieListScreen' , { message: item + ' Genre' , searchResults: searchResults } );
 };
 
 const HomeScreen = () => {
@@ -113,7 +117,10 @@ const HomeScreen = () => {
                         renderItem={({item}) =>
                             <Pressable
                                 style={styles.genreButton}
-                                onPress={ () => filterByGenreAndNavigate(item , navigation) }
+                                onPress={ () => {
+                                    filterByGenreAndNavigate(item , navigation);
+                                    setModalVisible(!modalVisible);
+                                }}
                             >
                                 <Text style={styles.genreButtonText}>{item}</Text>
                             </Pressable>
