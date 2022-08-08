@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import {View, Text, Image, Pressable} from 'react-native';
+import {View, Text, Image, Pressable, FlatList} from 'react-native';
 import React from 'react';
 import styles from './styles';
 import { useRoute } from '@react-navigation/native';
@@ -40,9 +40,34 @@ const MovieDetailsScreen = () => {
             </Text>
         </View>
 
-        <Text style={styles.movieDescriptionText}>
-            {movie.plot}
-        </Text>
+        <View>
+            <FlatList
+                style={styles.genreList}
+                horizontal
+                data={movie.genres}
+                showsVerticalScrollIndicator={false}
+                renderItem={({item}) =>
+                    <Pressable style={styles.genreButton}>
+                        <Text style={styles.genreButtonText}>{item}</Text>
+                    </Pressable>
+                }
+            />
+        </View>
+
+        <View style={styles.directorView}>
+
+            <Text style={styles.directorText}>Director(s) : </Text>
+
+            <Text style={styles.directorName}> {movie.director} </Text>
+        </View>
+
+        <View style={styles.descriptionView}>
+            <Text style={styles.descriptionText}>Description : </Text>
+
+            <Text style={styles.movieDescription}>
+                {movie.plot}
+            </Text>
+        </View>
 
     </View>
 

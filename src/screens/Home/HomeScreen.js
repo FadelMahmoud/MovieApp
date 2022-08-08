@@ -147,7 +147,7 @@ const HomeScreen = () => {
 
             {/* Popular Movies Row */}
         <View style={styles.MoviesListView}>
-            <Text style={styles.MoviesListViewText}>Upcoming Movies</Text>
+            <Text style={styles.MoviesListViewText}>Popular Movies</Text>
 
             <FlatList
                 horizontal
