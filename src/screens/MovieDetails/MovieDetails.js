@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
-import {View, Text, Image, Pressable, FlatList} from 'react-native';
+import {View, Text, Image, Pressable, FlatList, Alert} from 'react-native';
 import React from 'react';
 import styles from './styles';
 import { useRoute } from '@react-navigation/native';
 
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import FavouriteIcon from '../../components/FavouriteIcon/FavouriteIcon';
 
 const MovieDetailsScreen = () => {
 
@@ -20,11 +20,9 @@ const MovieDetailsScreen = () => {
             source={{uri:movie.posterUrl}}
         />
 
-        <Pressable style={styles.favouriteIcon}>
-            <Icon
-                name={'heart'} size={30} color={'#e8e8e8'}
-            />
-        </Pressable>
+        <View style={styles.favouriteIconView}>
+            <FavouriteIcon movie={movie} />
+        </View>
 
         <Text style={styles.movieTitle}>
                 {movie.title}

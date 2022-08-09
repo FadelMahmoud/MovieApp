@@ -1,9 +1,11 @@
 /* eslint-disable prettier/prettier */
-import {View, Text, Image, Pressable} from 'react-native';
+import {View, Text, Image, Pressable, Alert} from 'react-native';
 import React from 'react';
 import styles from './styles';
 
 import { useNavigation } from '@react-navigation/native';
+
+
 
 const MoviePosterCard = (props) => {
 
@@ -14,6 +16,7 @@ const MoviePosterCard = (props) => {
 //   console.log("movie" + movie )
 //   console.log("props" + props )
 //   console.log("item" + {item} )
+
   return (
 
     <Pressable
@@ -25,9 +28,9 @@ const MoviePosterCard = (props) => {
             source={{uri:movie.posterUrl}}
         />
 
-        <Text style={styles.movieTitle}>
+        {/* <Text style={styles.movieTitle}>
             {movie.title}
-         </Text>
+        </Text> */}
     </Pressable>
   );
 };

@@ -141,7 +141,7 @@ const HomeScreen = () => {
 
             <FlatList
                 horizontal
-                data={movieData.movies}
+                data={movieData.movies.filter( movie => movie.id > movieData.movies.length - 33 ) }
                 renderItem={({item}) =>
                     <MoviePosterCard movie={item}/>
                 }
@@ -154,7 +154,7 @@ const HomeScreen = () => {
 
             <FlatList
                 horizontal
-                data={movieData.movies}
+                data={movieData.movies.filter( movie => movie.id < 15 ) }
                 renderItem={({item}) =>
                     <MoviePosterCard movie={item}/>
                 }

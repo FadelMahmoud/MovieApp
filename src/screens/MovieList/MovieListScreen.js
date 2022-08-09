@@ -115,6 +115,7 @@ const MovieListScreen = () => {
                             <TextInput
                                 style={styles.searchInput}
                                 placeholder="ex: 2007"
+                                placeholderTextColor={'#fff'}
                                 keyboardType="numeric"
                                 autoFocus={true}
                                 onSubmitEditing={(value) =>

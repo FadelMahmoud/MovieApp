@@ -11,18 +11,10 @@ const styles = StyleSheet.create({
         margin: 10,
     },
     moviePoster: {
-        backgroundColor: '#ff3',
+        backgroundColor: '#ff3655',
         height: '70%',
         width : '100%',
         resizeMode: 'stretch',
-    },
-    favouriteIcon:{
-        backgroundColor: '#b0b1b2',
-        position: 'absolute',
-        right: 5,
-        margin: 10,
-        padding: 5,
-        borderRadius: 13,
     },
     movieRunTime: {
         position: 'absolute',

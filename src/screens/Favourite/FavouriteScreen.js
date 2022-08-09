@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 /* eslint-disable no-undef */
 /* eslint-disable prettier/prettier */
 import {View, Text, Image, Pressable, FlatList} from 'react-native';
@@ -10,6 +11,12 @@ import MoviePreviewCard from '../../components/MoviePreview/MoviePreviewCard';
 
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useSelector, useDispatch } from 'react-redux';
+import { setMovies, setMovieId } from '../../redux/actions';
+import taskReducer from '../../redux/reducers';
+
 const FavouriteScreen = () => {
 
     // const route = useRoute();
@@ -17,13 +24,30 @@ const FavouriteScreen = () => {
 
     const [favouriteMovies, setFavouriteMovies] = useState();
 
-    useEffect( () => {
-        getData();
-        console.log("inside fav")
-    }, []);
+    const { movies } = useSelector( state => state.taskReducer);
+    const dispatch = useDispatch();
 
-    const getData = () => {
-        setFavouriteMovies( movieData.movies.filter( movie => movie.favourite === true) );
+    // useEffect( () => {
+    //     navigation.addListener('focus', () => {
+    //       getTask();
+    //     });
+    //   }, [] );
+
+    useEffect(() => {
+        getData();
+      }, );
+
+      const getData = () => {
+        AsyncStorage.getItem('Movies')
+          .then( movies => { {
+              const parsedMovies = JSON.parse(movies);
+              if ( parsedMovies && typeof parsedMovies === 'object'){
+                  dispatch( setMovies( parsedMovies ));
+              }
+            }
+          })
+          .catch(err =>  console.log(err));
+
       };
 
     return (
@@ -32,14 +56,15 @@ const FavouriteScreen = () => {
 
         <FlatList
             style={styles.movieList}
-            data={favouriteMovies}
+            // data={favouriteMovies}
+            data={movies.filter( movie => movie.favourite === true )}
             // data={movieData.movies}
             renderItem={ ({item}) =>
             <MoviePreviewCard movie={item} />
             }
             ListEmptyComponent={
-            <View style={{marginVertical: '60%', marginHorizontal: 30 ,borderRadius: 15,borderColor: '#fff' , borderWidth: 1 , alignItems: 'center', justifyContent: 'center'}}> 
-                <Text style={{ fontSize: 35, padding: 20, textAlign: 'center', color: '#fff'}}> No Matched Results </Text>
+            <View style={{marginVertical: '60%', marginHorizontal: 30 ,borderRadius: 15,borderColor: '#fff' , borderWidth: 1 , alignItems: 'center', justifyContent: 'center'}}>
+                <Text style={{ fontSize: 35, padding: 20, textAlign: 'center', color: '#fff'}}> No Favourite Movie Selected </Text>
             </View>
          }
         />
