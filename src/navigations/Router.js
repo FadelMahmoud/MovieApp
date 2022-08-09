@@ -9,6 +9,7 @@ import HomeTabNavigator from './HomeTabNavigator';
 import HomeScreen from '../screens/Home/HomeScreen';
 import MovieListScreen from '../screens/MovieList/MovieListScreen';
 import MovieDetailsScreen from '../screens/MovieDetails/MovieDetails';
+import FavouriteScreen from '../screens/Favourite/FavouriteScreen';
 
 const Stack = createStackNavigator();
 
@@ -37,6 +38,14 @@ const Router = () => {
         <Stack.Screen
             name={'MovieDetailsScreen'}
             component={MovieDetailsScreen}
+            options={{
+                headerShown: false,
+            }}
+        />
+
+        <Stack.Screen
+            name={'FavouriteScreen'}
+            component={FavouriteScreen}
             options={{
                 headerShown: false,
             }}

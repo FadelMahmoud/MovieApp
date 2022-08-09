@@ -22,9 +22,10 @@ const findSearchResultsAndNavigate = (text, navigation) => {
     // console.log('searchResults[0]' + searchResults[0].title);
     // if (searchResults.length > 1) {console.log('searchResults[1]' + searchResults[1].title);}
 
-    if (searchResults.length > 0)
-        {navigation.navigate('MovieListScreen' , { message: text , searchResults: searchResults } );}
-    else {Alert.alert('No Results', 'Try another search');}
+    navigation.navigate('MovieListScreen' , { message: text , searchResults: searchResults } );
+    // if (searchResults.length > 0)
+    //     {navigation.navigate('MovieListScreen' , { message: text , searchResults: searchResults } );}
+    // else {Alert.alert('No Results', 'Try another search');}
 };
 
 const filterByGenreAndNavigate = (item, navigation) => {
@@ -34,9 +35,11 @@ const filterByGenreAndNavigate = (item, navigation) => {
 
     // // console.log('searchResults' + searchResults.length);
     // // console.log('searchResults[0]' + searchResults[0]);
-    if (searchResults.length > 0)
-        {navigation.navigate('MovieListScreen' , { message: item + ' Genre' , searchResults: searchResults } );}
-    else {Alert.alert('No Results', 'Try another search');}
+    navigation.navigate('MovieListScreen' , { message: item + ' Genre' , searchResults: searchResults } );
+    // if (searchResults.length > 0)
+    //     {navigation.navigate('MovieListScreen' , { message: item + ' Genre' , searchResults: searchResults } );}
+    // else {Alert.alert('No Results', 'Try another search');}
+
 
 };
 
@@ -97,7 +100,7 @@ const HomeScreen = () => {
                 visible={modalVisible}
                 onRequestClose={() => { setModalVisible(!modalVisible); }}
             >
-                <View style={styles.centeredView}>
+                 <View style={styles.centeredView}>
                     <View style={styles.modalHead}>
                         <Text style={styles.modalHeadText}>Select your genre</Text>
 

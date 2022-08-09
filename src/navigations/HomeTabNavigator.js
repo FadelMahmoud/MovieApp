@@ -5,6 +5,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from '../screens/Home/HomeScreen';
+import FavouriteScreen from '../screens/Favourite/FavouriteScreen';
 
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -44,7 +45,7 @@ const HomeTabNavigator = () => {
 
         <Tab.Screen
             name={'Favorites'}
-            component={HomeScreen}
+            component={FavouriteScreen}
         />
 
         <Tab.Screen

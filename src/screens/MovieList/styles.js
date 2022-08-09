@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     },
     movieList: {
         width: '100%',
+        height: '100%',
         backgroundColor: '#2b3848',
     },
 
@@ -93,6 +94,18 @@ const styles = StyleSheet.create({
         // shadowOpacity: 0.25,
         // shadowRadius: 4,
         // elevation: 5,
+    },
+    searchBar: {
+        backgroundColor: '#2b3848',
+        width: '50%',
+        height: 55,
+        justifyContent: 'center',
+        borderRadius: 30,
+        paddingHorizontal: 20,
+    },
+    searchInput: {
+        fontSize: 16,
+        color: '#fff',
     },
     yearButton: {
         backgroundColor: '#eb1f58',
