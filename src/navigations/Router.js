@@ -6,10 +6,10 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 
 import HomeTabNavigator from './HomeTabNavigator';
-import HomeScreen from '../screens/Home/HomeScreen';
 import MovieListScreen from '../screens/MovieList/MovieListScreen';
 import MovieDetailsScreen from '../screens/MovieDetails/MovieDetails';
 import FavouriteScreen from '../screens/Favourite/FavouriteScreen';
+import ProfileScreen from '../screens/Profile/ProfileScreen';
 
 const Stack = createStackNavigator();
 
@@ -46,6 +46,14 @@ const Router = () => {
         <Stack.Screen
             name={'FavouriteScreen'}
             component={FavouriteScreen}
+            options={{
+                headerShown: false,
+            }}
+        />
+
+        <Stack.Screen
+            name={'ProfileScreen'}
+            component={ProfileScreen}
             options={{
                 headerShown: false,
             }}

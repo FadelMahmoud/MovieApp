@@ -66,7 +66,7 @@ const FavouriteIcon = (props) => {
             dispatch(setMovies(newMovies));
   
             // Alert.alert('Success!!!', 'Movie saved to Favourite successfully');
-            Alert.alert('Success', "Movie's Favourite state changed");
+            // Alert.alert('Success', "Movie's Favourite state changed");
             // navigation.goBack();
           })
           .catch ( err => console.log(err));
