@@ -11,7 +11,7 @@ Allows users to browse and search for a variety of movies.
 2- **MovieList screen** <br />
 <img src="https://user-images.githubusercontent.com/73054268/184254543-9d7ccf1b-41a3-4186-b4e7-cdbc0a920925.jpeg" width=400 height=750>
 
-3- **MovieDetails screen** <br />
+3- **MoviesDetails screen** <br />
 <img src="https://user-images.githubusercontent.com/73054268/184254601-3b75f16c-4e2d-4464-a28b-b3065e7cfeac.jpeg" width=400 height=750>
 
 4- **Genre filtering modal** <br />
