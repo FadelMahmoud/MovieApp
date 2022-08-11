@@ -3,13 +3,11 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
     Container: {
+        backgroundColor: '#2b3848',
         flex: 1,
         padding: 20,
-        // backgroundColor: '#202A36',
-        backgroundColor: '#2b3848',
     },
     headerView: {
-        // backgroundColor: 'lightblue',
         height:80,
         justifyContent: 'center',
         alignItems: 'center',
@@ -20,12 +18,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: 15,
     },
     headerResultText: {
-        fontSize: 20,
         color: '#fff',
+        fontSize: 20,
     },
     headerMessage: {
-        fontSize: 27,
         color: '#fff',
+        fontSize: 27,
         fontWeight: 'bold',
     },
     yearFilterView: {
@@ -40,9 +38,9 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
     },
     movieList: {
+        backgroundColor: '#2b3848',
         width: '100%',
         height: '100%',
-        backgroundColor: '#2b3848',
     },
 
     // START MODAL STYLING
@@ -85,15 +83,6 @@ const styles = StyleSheet.create({
         borderWidth: 0.3,
         borderBottomStartRadius: 25,
         borderBottomEndRadius: 25,
-        
-        // shadowColor: '#000',
-        // shadowOffset: {
-        // width: 0,
-        // height: 2,
-        // },
-        // shadowOpacity: 0.25,
-        // shadowRadius: 4,
-        // elevation: 5,
     },
     searchBar: {
         backgroundColor: '#2b3848',
@@ -104,20 +93,35 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     searchInput: {
-        fontSize: 16,
         color: '#fff',
+        fontSize: 16,
     },
     yearButton: {
         backgroundColor: '#eb1f58',
+        color: '#fff',
         padding:5,
         margin: 5,
         width: '30%',
         alignItems: 'center',
         borderRadius: 20,
-        color: '#fff',
     },
     yearButtonText: {
         color: '#fff',
+    },
+    emptyListView: {
+        marginVertical: '60%',
+        marginHorizontal: 30 ,
+        borderRadius: 15,
+        borderColor: '#fff',
+        borderWidth: 1 ,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    emptyListText: {
+        color: '#fff',
+        fontSize: 35,
+        padding: 20,
+        textAlign: 'center',
     },
 
   // END MODAL STYLING

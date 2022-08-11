@@ -24,13 +24,13 @@ const styles = StyleSheet.create({
         borderRadius: 13,
     },
     movieTitle: {
+        color: '#f8ff00',
         position: 'absolute',
         left: 5,
         top: '40%',
         margin: 10,
         padding: 5,
         borderRadius: 13,
-        color: '#f8ff00',
         fontSize: 30,
         fontWeight: 'bold',
     },
@@ -55,12 +55,12 @@ const styles = StyleSheet.create({
     },
     genreButton: {
         backgroundColor: '#eb1f58',
+        color: '#fff',
         paddingVertical: 5,
         paddingHorizontal: 10,
         margin: 5,
         alignItems: 'center',
         borderRadius: 20,
-        color: '#fff',
     },
     genreButtonText: {
         color: '#fff',
@@ -78,9 +78,11 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 15,
         fontWeight: 'bold',
+        marginLeft: 10,
     },
     descriptionView: {
         paddingHorizontal: 15,
+        marginVertical: 5,
     },
     descriptionText: {
         color: '#fff',
@@ -88,6 +90,20 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     movieDescription: {
+        color: '#B7B8BD',
+        paddingLeft: 10,
+        fontSize: 15,
+    },
+    actorsView: {
+        paddingHorizontal: 15,
+        marginTop: 5,
+    },
+    actorsText: {
+        color: '#fff',
+        fontSize: 15,
+        marginBottom: 5,
+    },
+    movieActors: {
         color: '#B7B8BD',
         paddingLeft: 10,
         fontSize: 15,

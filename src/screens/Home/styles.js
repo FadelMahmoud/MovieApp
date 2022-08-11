@@ -3,10 +3,9 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
     Container: {
+        backgroundColor: '#2b3848',
         flex: 1,
         padding: 20,
-        // backgroundColor: '#202A36',
-        backgroundColor: '#2b3848',
     },
     headerView: {
         height:60,
@@ -25,12 +24,12 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     helloText: {
-        fontSize: 15,
         color: '#fff',
+        fontSize: 15,
     },
     userName: {
-        fontSize: 20,
         color: '#fff',
+        fontSize: 20,
     },
     searchView: {
         marginTop: 13,
@@ -50,10 +49,10 @@ const styles = StyleSheet.create({
         marginHorizontal: '5%',
     },
     searchInput: {
-        fontSize: 16,
         color: '#16263C',
+        fontSize: 16,
     },
-    categoryFilterView: {
+    genreFilterView: {
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
@@ -115,24 +114,15 @@ const styles = StyleSheet.create({
         borderWidth: 0.3,
         borderBottomStartRadius: 25,
         borderBottomEndRadius: 25,
-        
-        // shadowColor: '#000',
-        // shadowOffset: {
-        // width: 0,
-        // height: 2,
-        // },
-        // shadowOpacity: 0.25,
-        // shadowRadius: 4,
-        // elevation: 5,
     },
     genreButton: {
         backgroundColor: '#eb1f58',
+        color: '#fff',
         padding:5,
         margin: 5,
         width: '30%',
         alignItems: 'center',
         borderRadius: 20,
-        color: '#fff',
     },
     genreButtonText: {
         color: '#fff',

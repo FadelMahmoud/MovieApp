@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 19,
         marginLeft: 10,
-    }
+    },
 });
 
 export default styles;

@@ -17,11 +17,11 @@ const styles = StyleSheet.create({
         resizeMode: 'stretch',
     },
     movieRunTime: {
+        color: '#fff',
         position: 'absolute',
         right: 5,
         bottom: '33%',
         marginRight: 5,
-        color: '#fff',
         fontWeight: 'bold',
     },
     movieTitleAndYearView: {
@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
         width: '20%',
     },
     movieDescriptionText: {
-        paddingHorizontal: 12,
         color: '#B7B8BD',
+        paddingHorizontal: 12,
     },
 });
 

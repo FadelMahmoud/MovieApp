@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-import {View, Text} from 'react-native';
 import React from 'react';
 
 import {createStackNavigator} from '@react-navigation/stack';
@@ -15,48 +14,39 @@ const Stack = createStackNavigator();
 
 const Router = () => {
 
+// Manages app's screens navigation
   return (
+
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+            headerShown: false,
+        }}
+      >
 
         <Stack.Screen
             name={'HomeScreen'}
             component={HomeTabNavigator}
-            options={{
-                headerShown: false,
-            }}
         />
 
         <Stack.Screen
             name={'MovieListScreen'}
             component={MovieListScreen}
-            options={{
-                headerShown: false,
-            }}
         />
 
         <Stack.Screen
             name={'MovieDetailsScreen'}
             component={MovieDetailsScreen}
-            options={{
-                headerShown: false,
-            }}
         />
 
         <Stack.Screen
             name={'FavouriteScreen'}
             component={FavouriteScreen}
-            options={{
-                headerShown: false,
-            }}
         />
 
         <Stack.Screen
             name={'ProfileScreen'}
             component={ProfileScreen}
-            options={{
-                headerShown: false,
-            }}
         />
 
       </Stack.Navigator>

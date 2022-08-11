@@ -17,16 +17,6 @@ const styles = StyleSheet.create({
         width : '100%',
         resizeMode: 'stretch',
     },
-    // movieTitle: {
-    //     position: 'absolute',
-    //     bottom: 10,
-    //     width : 160,
-    //     paddingHorizontal: 1,
-    //     fontSize: 18,
-    //     textAlign: 'center',
-    //     fontWeight: '900',
-    //     color: '#f8fcfb',
-    // },
 });
 
 export default styles;

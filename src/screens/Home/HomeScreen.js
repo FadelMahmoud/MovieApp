@@ -1,8 +1,9 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 /* eslint-disable prettier/prettier */
-import {View, Text, Image, TextInput, Pressable, TouchableOpacity, FlatList, Modal, Alert} from 'react-native';
+import {View, Text, Image, TextInput, Pressable, TouchableOpacity, FlatList, Modal} from 'react-native';
 import React, {useState} from 'react';
 import styles from './styles';
+
 import { useNavigation } from '@react-navigation/native';
 
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -12,34 +13,25 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import movieData from '../../data/movieDB';
 import MoviePosterCard from '../../components/MoviePoster/MoviePosterCard';
 
+
 const findSearchResultsAndNavigate = (text, navigation) => {
 
-    // console.log('text' + text);
+// Search if text input includes in movie title OR actor name
     const searchResults = movieData.movies.filter( movie =>
-        movie.title.toLowerCase() === text.toLowerCase() || movie.actors.includes(text));
+        movie.title.toLowerCase().includes( text.toLowerCase() ) || movie.actors.toLowerCase().includes( text.toLowerCase() ) );
 
-    // console.log('searchResults' + searchResults.length);
-    // console.log('searchResults[0]' + searchResults[0].title);
-    // if (searchResults.length > 1) {console.log('searchResults[1]' + searchResults[1].title);}
-
+// Navigate to MovieListScreen to show text input & search results
     navigation.navigate('MovieListScreen' , { message: text , searchResults: searchResults } );
-    // if (searchResults.length > 0)
-    //     {navigation.navigate('MovieListScreen' , { message: text , searchResults: searchResults } );}
-    // else {Alert.alert('No Results', 'Try another search');}
+
 };
 
 const filterByGenreAndNavigate = (item, navigation) => {
 
-    console.log('item' + item);
+// Filter movies based on genre
     const searchResults = movieData.movies.filter( movie => movie.genres.includes(item) );
 
-    // // console.log('searchResults' + searchResults.length);
-    // // console.log('searchResults[0]' + searchResults[0]);
+    // Navigate to MovieListScreen to show searched genre & search results
     navigation.navigate('MovieListScreen' , { message: item + ' Genre' , searchResults: searchResults } );
-    // if (searchResults.length > 0)
-    //     {navigation.navigate('MovieListScreen' , { message: item + ' Genre' , searchResults: searchResults } );}
-    // else {Alert.alert('No Results', 'Try another search');}
-
 
 };
 
@@ -49,13 +41,14 @@ const HomeScreen = () => {
 
   const [ modalVisible, setModalVisible ] = useState(false);
 
+
   return (
 
+// Main container
     <View style={styles.Container}>
 
             {/* Header Row */}
         <View style={styles.headerView}>
-
             <Image
                 style={styles.userImage}
                 source={require('../../assets/userImage.jpg') }
@@ -74,7 +67,6 @@ const HomeScreen = () => {
 
             {/* Search Row */}
         <View style={styles.searchView}>
-
             <View style={styles.searchBar}>
                 <TextInput
                     style={styles.searchInput}
@@ -86,14 +78,14 @@ const HomeScreen = () => {
             </View>
 
             <TouchableOpacity
-                style={styles.categoryFilterView}
+                style={styles.genreFilterView}
                 onPress={ () => { setModalVisible(!modalVisible); }}
             >
                 <MaterialCommunityIcons  name={'filter-menu'} size={25} color={'#E82351'}/>
                 <Text>Filter</Text>
             </TouchableOpacity>
 
-            {/* Category Filter Modal */}
+            {/* Genre Filter Modal */}
             <Modal
                 animationType="slide"
                 transparent={true}
@@ -101,6 +93,8 @@ const HomeScreen = () => {
                 onRequestClose={() => { setModalVisible(!modalVisible); }}
             >
                  <View style={styles.centeredView}>
+
+                    {/* Modal head */}
                     <View style={styles.modalHead}>
                         <Text style={styles.modalHeadText}>Select your genre</Text>
 
@@ -112,22 +106,24 @@ const HomeScreen = () => {
                         </Pressable>
                     </View>
 
+                    {/* Main Modal View */}
                     <View style={styles.modalView}>
                         <FlatList
-                        data={movieData.genres}
-                        numColumns={3}
-                        showsVerticalScrollIndicator={false}
-                        renderItem={({item}) =>
-                            <Pressable
-                                style={styles.genreButton}
-                                onPress={ () => {
-                                    filterByGenreAndNavigate(item , navigation);
-                                    setModalVisible(!modalVisible);
-                                }}
-                            >
-                                <Text style={styles.genreButtonText}>{item}</Text>
-                            </Pressable>
-                        }
+                            data={movieData.genres}
+                            numColumns={3}
+                            showsVerticalScrollIndicator={false}
+
+                            renderItem={({item}) =>
+                                <Pressable
+                                    style={styles.genreButton}
+                                    onPress={ () => {
+                                        filterByGenreAndNavigate(item , navigation);
+                                        setModalVisible(!modalVisible);
+                                    }}
+                                >
+                                    <Text style={styles.genreButtonText}>{item}</Text>
+                                </Pressable>
+                            }
                         />
                     </View>
                 </View>
@@ -141,7 +137,9 @@ const HomeScreen = () => {
 
             <FlatList
                 horizontal
+                // Upcoming movies assumed to be last 33 movies in the database
                 data={movieData.movies.filter( movie => movie.id > movieData.movies.length - 33 ) }
+
                 renderItem={({item}) =>
                     <MoviePosterCard movie={item}/>
                 }
@@ -154,13 +152,14 @@ const HomeScreen = () => {
 
             <FlatList
                 horizontal
+                // Popular movies assumed to be first 14 movies in the database
                 data={movieData.movies.filter( movie => movie.id < 15 ) }
+
                 renderItem={({item}) =>
                     <MoviePosterCard movie={item}/>
                 }
             />
         </View>
-
 
     </View>
   );

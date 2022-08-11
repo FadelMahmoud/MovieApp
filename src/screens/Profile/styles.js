@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     contactNumber: {
         color: '#9EA3A9',
         fontSize: 17,
-
     },
 });
 

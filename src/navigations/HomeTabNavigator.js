@@ -1,21 +1,24 @@
 /* eslint-disable prettier/prettier */
-import {View, Text} from 'react-native';
 import React from 'react';
-
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-import HomeScreen from '../screens/Home/HomeScreen';
-import FavouriteScreen from '../screens/Favourite/FavouriteScreen';
-import ProfileScreen from '../screens/Profile/ProfileScreen';
 
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
+import HomeScreen from '../screens/Home/HomeScreen';
+import FavouriteScreen from '../screens/Favourite/FavouriteScreen';
+import ProfileScreen from '../screens/Profile/ProfileScreen';
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 const Tab = createBottomTabNavigator();
 
+
 const HomeTabNavigator = () => {
+
+  // Manages Home Bottom Tab navigation
   return (
+
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
@@ -36,7 +39,7 @@ const HomeTabNavigator = () => {
         tabBarActiveTintColor: '#E82351',
         tabBarInactiveTintColor: '#68707C',
         headerShown: false,
-      })}  
+      })}
     >
 
         <Tab.Screen
